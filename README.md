@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Demo
 
-https://zealous-nannyberry-a05.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fc0c7269e-f726-4c2b-a243-e0968eca08e0%2F2513a198-bdcb-4a65-8db6-540f182f6b1b%2FScreenshot_2024-08-03_at_2.35.17_PM_(2).png?table=block&id=e4114520-0314-4013-ba8e-5619c5b8ee36&spaceId=c0c7269e-f726-4c2b-a243-e0968eca08e0&width=1420&userId=&cache=v2
+![Screenshot 2024-08-03 at 2 35 17 PM (2)](https://github.com/user-attachments/assets/b3aaa227-5878-44ef-b5b8-113088704b0e)
 
 
 ## Run Locally
