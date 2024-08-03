@@ -43,8 +43,8 @@ export class LoginComponent {
     this.http.post('http://localhost:8000/login', formData).subscribe({
       next: (response: any) => {
         this.successMessage = "Login Successful";
-        localStorage.setItem('authFlag', 'true');
-        this.router.navigate(['']);
+        // localStorage.setItem('authFlag', 'true');
+        this.router.navigate(['/home']);
       },
       error: (error) => {
         console.error('Login error', error);
