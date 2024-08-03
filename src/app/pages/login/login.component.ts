@@ -40,7 +40,7 @@ export class LoginComponent {
     }
     const formData = this.loginForm.value;
     console.log("Form Data:", formData); // Debug log
-    this.http.post('http://localhost:8000/login', formData).subscribe({
+    this.http.post('https://fletnix-backend-7ysu.onrender.com/login', formData).subscribe({
       next: (response: any) => {
         this.successMessage = "Login Successful";
         // localStorage.setItem('authFlag', 'true');

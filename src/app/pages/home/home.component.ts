@@ -24,15 +24,15 @@ export class HomeComponent implements OnInit {
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    // Load all movies by default
+   
     this.loadMovies('all');
   }
 
   onNavClick(type: string): void {
     if (type === 'all') {
-      this.loadMovies('all'); // Load all movies
+      this.loadMovies('all'); //all movies
     } else {
-      this.loadFilteredMovies(type); // Load filtered movies based on type
+      this.loadFilteredMovies(type); 
     }
   }
 
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
 
   loadMovies(type: string): void {
     if (type === 'all') {
-      // Fetch all movies
+      
       this.moviesService.getMovies("movies").subscribe({
         next: (data) => {
           this.totalMovies = data.length;

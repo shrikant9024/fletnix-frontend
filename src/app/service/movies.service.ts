@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MoviesService {
-  private baseUrl = "http://localhost:8000"
+  private baseUrl = "https://fletnix-backend-7ysu.onrender.com"
 
   constructor(private http:HttpClient) {}
   getMovies(name:string):Observable<any>{

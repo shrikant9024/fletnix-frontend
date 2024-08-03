@@ -1,12 +1,12 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
-import { NgModel, FormsModule } from '@angular/forms'; // Import FormsModule for NgModel
+import { NgModel, FormsModule } from '@angular/forms'; 
 import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule, FormsModule,NgClass], // Import FormsModule for NgModel
+  imports: [RouterModule, FormsModule,NgClass], 
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
@@ -20,14 +20,14 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // Optionally, set the active link based on the current route
-    this.activeLink = this.router.url.substring(1) || 'home'; // Ensure 'home' is the default
+    
+    this.activeLink = this.router.url.substring(1) || 'home'; 
   }
 
   onNavClick(type: string, link: string): void {
-    this.navClick.emit(type);  // Emit the navigation event if needed
-    this.activeLink = link;    // Update the active link for styling
-    this.router.navigate([`/${link}`]);  // Navigate to the selected route
+    this.navClick.emit(type);  
+    this.activeLink = link;    
+    this.router.navigate([`/${link}`]);  
   }
 
   onSearch(): void {

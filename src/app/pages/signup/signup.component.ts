@@ -40,7 +40,7 @@ export class SignupComponent implements OnInit {
 
     const formData = this.signupForm.value;
 
-    this.http.post('http://localhost:8000/signup', formData)
+    this.http.post('https://fletnix-backend-7ysu.onrender.com/signup', formData)
       .subscribe({
         next: (response) => {
           this.successMessage = 'Registration successful!';

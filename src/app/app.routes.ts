@@ -7,7 +7,7 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 
 export const routes: Routes = [
     {
-        path:'home',title:'Home', component:HomeComponent
+        path:'home',title:'Home', loadComponent:()=>import('./pages/home/home.component').then(m => m.HomeComponent)
     },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     {
@@ -17,7 +17,7 @@ export const routes: Routes = [
         path:'login',title:'login', component:LoginComponent
     },
     {
-        path:'movies/:id',title:'login', component:MovieDetailsComponent
+        path:'movies/:id',title:'login', loadComponent:()=>import('./pages/movie-details/movie-details.component').then(m => m.MovieDetailsComponent)
     },
     // { path: '**', redirectTo: 'home' }
 
