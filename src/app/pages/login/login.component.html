@@ -1,0 +1,81 @@
+<div class="relative w-full h-screen">
+  <img
+    src="https://cdn.neowin.com/news/images/uploaded/2023/05/1683747988_background-size1920x1080-4e1694a6-75aa-4c36-9d4d-7fb6a3102005-bc5318781aad7f5c8520.jpg"
+    alt="Netflix"
+    class="w-full h-full object-cover"
+  />
+  <div
+    class="absolute inset-0 flex items-center justify-center p-4 sm:p-8 md:p-12"
+  >
+    <div
+      class="bg-black bg-opacity-80 p-6 sm:p-8 md:p-12 rounded-lg items-start w-full max-w-md"
+    >
+      <h1
+        class="text-red-700 text-4xl sm:text-6xl md:text-[100px] mb-10 ml-2 sm:ml-4 text-start"
+      >
+        fletnix
+      </h1>
+
+      <h2 class="text-white text-2xl sm:text-3xl mb-6 ml-2 sm:ml-4">Sign In</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-6 flex flex-col gap-4">
+          <!-- Email field -->
+          <input
+            type="text"
+            placeholder="Email or mobile number"
+            formControlName="email"
+            class="w-full p-4 border border-gray-200 rounded text-neutral-400 bg-inherit"
+          />
+          <div
+            *ngIf="submitted && loginForm.get('email')?.invalid"
+            class="text-red-500 text-sm"
+          >
+            <div *ngIf="loginForm.get('email')?.errors?.['required']">
+              Email is required.
+            </div>
+            <div *ngIf="loginForm.get('email')?.errors?.['email']">
+              Invalid email format.
+            </div>
+          </div>
+
+          <!-- Password field -->
+          <input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            class="w-full p-4 border border-gray-200 rounded text-neutral-400 bg-inherit"
+          />
+          <div
+            *ngIf="submitted && loginForm.get('password')?.invalid"
+            class="text-red-500 text-sm"
+          >
+            <div *ngIf="loginForm.get('password')?.errors?.['required']">
+              Password is required.
+            </div>
+            <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
+              Password must be at least 6 characters long.
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="bg-red-600 text-white w-full py-2 rounded mb-4 hover:scale-110 transition ease-in-out"
+          >
+            Sign In
+          </button>
+
+          <div *ngIf="errorMessage" class="text-red-500 mb-4">
+            {{ errorMessage }}
+          </div>
+        </div>
+
+        <div class="text-neutral-200 text-sm text-center tracking-wide">
+          New to Fletnix?
+          <a href="/signup" class="underline hover:scale-110 hover:text-white"
+            >Sign up now.</a
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="w-full min-h-screen bg-neutral-900 flex flex-col">
+  <app-navbar></app-navbar>
+
+  <div *ngIf="errorMessage" class="text-red-500 mb-4 text-center">
+    {{ errorMessage }}
+  </div>
+
+  <div
+    *ngIf="movie"
+    class="bg-neutral-800 p-4 mt-4 sm:p-6 md:p-8 lg:p-12 rounded-lg shadow-lg text-white flex flex-col mx-auto max-w-screen-lg h-auto 2xl:mt-14 sm:mt-2"
+  >
+    <div
+      class="text-center mb-4 bg-neutral-900 rounded-xl text-neutral-300 p-4 items-center flex justify-center"
+    >
+      <h1
+        class="text-2xl sm:text-4xl md:text-3xl tracking-wide font-bold mb-4 mt-2"
+      >
+        {{ movie.title }}
+      </h1>
+    </div>
+    <div class="space-y-4">
+      <h2 class="text-lg font-extrabold">Movie Details</h2>
+      <h2 class="text-base font-light">{{ movie.type }}</h2>
+      <h2 class="text-base font-light">ID: {{ movie.show_id }}</h2>
+      <h2 class="text-base font-light">
+        Director: <span class="font-bold">{{ movie.director }}</span>
+      </h2>
+      <h2 class="text-base font-light">Country: {{ movie.country }}</h2>
+      <h2 class="text-base font-light">Date Added: {{ movie.date_added }}</h2>
+
+      <p class="text-base font-light">Release Year: {{ movie.release_year }}</p>
+      <p class="text-base sm:text-lg font-light">
+        Duration: {{ movie.duration }}
+      </p>
+      <p class="text-base sm:text-lg font-light">Rating: {{ movie.rating }}</p>
+      <p class="text-base sm:text-lg font-light">
+        Listed In: {{ movie.listed_in }}
+      </p>
+      <p class="text-sm sm:text-base font-thin text-gray-400">
+        {{ movie.description }}
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="w-full min-h-screen bg-neutral-900 flex flex-col">
+  <app-navbar (navClick)="onNavClick($event)" (search)="handleSearch($event)">
+  </app-navbar>
+
+  <div class="flex-grow flex flex-col">
+    <div
+      class="mx-4 md:mx-8 lg:mx-16 my-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 flex-grow"
+    >
+      <div
+        *ngIf="errorMessage"
+        class="col-span-full mb-4 text-center text-white"
+      >
+        {{ errorMessage }}
+      </div>
+
+      <div
+        *ngFor="let movie of movies"
+        class="flex items-stretch content-evenly"
+      >
+        <a
+          [routerLink]="['/movies', movie._id]"
+          class="bg-neutral-800 p-2 md:p-4 lg:p-6 rounded-lg shadow-lg text-white flex flex-col justify-between h-full w-full hover:scale-110 transition-transform duration-300 opacity-90"
+        >
+          <div>
+            <h2
+              class="text-xs md:text-sm font-bold mb-4 text-center 2xl:text-xl 2xl:mb-6"
+            >
+              {{ movie.title }}
+            </h2>
+            <h3 class="text-xs mb-2 2xl:text-xs 2xl:mb-4">{{ movie.type }}</h3>
+            <p class="mb-2 text-xs 2xl:text-xs 2xl:mb-2">
+              Release Date: {{ movie.release_year }}
+            </p>
+            <p class="text-xs text-neutral-400 2xl:text-l">
+              {{ movie.description | truncate : 80 }}
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center bg-neutral-400 p-2 md:p-2">
+    <mat-paginator
+      [length]="totalMovies"
+      [pageSize]="pageSize"
+      (page)="onPageChange($event)"
+      [showFirstLastButtons]="true"
+      class="text-white"
+    >
+    </mat-paginator>
+  </div>
+</div>
