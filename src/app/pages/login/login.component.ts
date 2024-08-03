@@ -31,23 +31,26 @@ export class LoginComponent {
     })
   }
 
-  onSubmit(){
-    this.submitted=true
-    if(this.loginForm.invalid){
-    this.errorMessage= "All Fields are required"
-    return;
+  onSubmit() {
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      this.errorMessage = "All Fields are required";
+      console.log("Form Errors:", this.loginForm.errors);
+      return;
     }
-    const formData = this.loginForm.value
-    this.http.post('http://localhost:8000/login',formData).subscribe({
-      next:(response)=>{
-        this.successMessage="Login Successfull";
-        this.router.navigate([''])
+    const formData = this.loginForm.value;
+    console.log("Form Data:", formData); // Debug log
+    this.http.post('http://localhost:8000/login', formData).subscribe({
+      next: (response: any) => {
+        this.successMessage = "Login Successful";
+        localStorage.setItem('authFlag', 'true');
+        this.router.navigate(['']);
       },
-      error:(error)=>{
-        console.error('Login error',error);
-        this.errorMessage="Invalid email or password. Please Try Again"
+      error: (error) => {
+        console.error('Login error', error);
+        this.errorMessage = "Invalid email or password. Please Try Again";
       }
-    })
-
+    });
   }
+  
 }

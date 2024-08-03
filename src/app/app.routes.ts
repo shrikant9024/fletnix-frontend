@@ -3,10 +3,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
     {
-        path:'',title:'Home', component:HomeComponent
+        path:'',title:'Home', component:HomeComponent,canActivate:[AuthGuard]
     },
     {
         path:'signup',title:'signup', component:SignupComponent
